@@ -16,10 +16,12 @@ import { Menu } from './menu'
 import { Button } from './button'
 import { Play } from 'lucide-react'
 import { useEffect, useMemo, useState } from 'react'
+import { useCalcWidth } from '../hooks/useCalcWidth'
 
 export function Header() {
   const [selectedGame, setSelectedGame] = useState('diablo')
   const games = useMemo(() => ['diablo', 'hearthstone', 'wow'], [])
+  const windowWidth = useCalcWidth()
 
   function handleChangeGame(game: string) {
     setSelectedGame(game)
@@ -41,8 +43,8 @@ export function Header() {
     >
       <Menu />
       <div className="flex items-center justify-between max-w-[1280px] my-20 m-auto">
-        <div className="flex items-center gap-20">
-          <div className="flex flex-col gap-4">
+        <div className="flex flex-col-reverse xl:flex-row items-start xl:items-center gap-20 px-8">
+          <div className="flex flex-row xl:flex-col gap-4">
             <img
               src={Game1}
               className={`${selectedGame === 'diablo' ? 'grayscale-0' : 'grayscale'} filter hover:grayscale-0 cursor-pointer`}
@@ -74,24 +76,22 @@ export function Header() {
               onClick={() => handleChangeGame}
             />
           </div>
-          <div className="flex flex-col items-start gap-4 w-[600px]">
-            {selectedGame === 'diablo' && (
-              <h1 className="text-[64px] font-bold leading-tight">
-                Retorne à escuridão com o game Diablo IV
-              </h1>
-            )}
-            {selectedGame === 'hearthstone' && (
-              <h1 className="text-[64px] font-bold leading-tight">
-                Novo pacote de expansão de Hearthstone
-              </h1>
-            )}
-            {selectedGame === 'wow' && (
-              <h1 className="text-[64px] font-bold leading-tight">
-                Desbrave as Terras Sombrias em Shadowlands!
-              </h1>
-            )}
-            <p className="text-[18px]">
-              O retorno de Lilith traz uma era de escuridão e sofrimento
+          <div className="flex flex-col items-start gap-4 text-center md:text-start w-auto md:w-[600px]">
+            <h1 className="text-[64px] font-bold leading-tight">
+              {selectedGame === 'diablo' &&
+                'Retorne à escuridão com o game Diablo IV'}
+              {selectedGame === 'hearthstone' &&
+                'Novo pacote de expansão de Hearthstone'}
+              {selectedGame === 'wow' &&
+                'Desbrave as Terras Sombrias em Shadowlands!'}
+            </h1>
+            <p className="text-[18px] text-center md:text-start">
+              {selectedGame === 'diablo' &&
+                'O retorno de Lilith traz uma era de escuridão e sofrimento'}
+              {selectedGame === 'hearthstone' &&
+                'A Horda e a Aliança se encontraram no Vale Alterac para lutar'}
+              {selectedGame === 'wow' &&
+                'O que jaz além do mundo que você conhece?'}
             </p>
             {selectedGame === 'diablo' && (
               <Button
@@ -116,65 +116,69 @@ export function Header() {
             )}
           </div>
         </div>
-        <div className="w-[300px] h-[300px] flex items-center justify-between">
-          <div className="flex flex-col justify-between gap-32">
-            {selectedGame === 'diablo' && (
-              <img src={DiabloLogo} alt="Logo Diablo" />
-            )}
-            {selectedGame === 'hearthstone' && (
-              <img src={HearthstoneLogo} alt="Logo Hearthstone" />
-            )}
-            {selectedGame === 'wow' && <img src={WowLogo} alt="Logo Wow" />}
-            <div className="flex items-center justify-center relative w-[280px] h-[173px]">
-              <p className="absolute right-0 top-[-32px]">ASSISTA O TRAILER</p>
+        {windowWidth > 1024 && (
+          <div className="w-[300px] h-[300px] flex items-center justify-between">
+            <div className="flex flex-col justify-between gap-32">
               {selectedGame === 'diablo' && (
-                <>
-                  <img
-                    src={DiabloAnimationCover}
-                    className="w-full h-full absolute inset-0"
-                    alt=""
-                  />
-                  <img
-                    src={DiabloAnimationGif}
-                    className="w-full h-full absolute inset-0 opacity-0 hover:opacity-100 transition-opacity duration-300"
-                    alt=""
-                  />
-                </>
+                <img src={DiabloLogo} alt="Logo Diablo" />
               )}
               {selectedGame === 'hearthstone' && (
-                <>
-                  <img
-                    src={HearthstoneAnimationCover}
-                    className="w-full h-full absolute inset-0"
-                    alt=""
-                  />
-                  <img
-                    src={HearthstoneAnimationGif}
-                    className="w-full h-full absolute inset-0 opacity-0 hover:opacity-100 transition-opacity duration-300"
-                    alt=""
-                  />
-                </>
+                <img src={HearthstoneLogo} alt="Logo Hearthstone" />
               )}
-              {selectedGame === 'wow' && (
-                <>
-                  <img
-                    src={WowAnimationCover}
-                    className="w-full h-full absolute inset-0"
-                    alt=""
-                  />
-                  <img
-                    src={WowAnimationGif}
-                    className="w-full h-full absolute inset-0 opacity-0 hover:opacity-100 transition-opacity duration-300"
-                    alt=""
-                  />
-                </>
-              )}
-              <button className="absolute p-2 rounded-full bg-black z-10 pointer-events-none">
-                <Play className="text-[#00aeff] inset-0 z-0" />
-              </button>
+              {selectedGame === 'wow' && <img src={WowLogo} alt="Logo Wow" />}
+              <div className="flex items-center justify-center relative w-[280px] h-[173px]">
+                <p className="absolute right-0 top-[-32px]">
+                  ASSISTA O TRAILER
+                </p>
+                {selectedGame === 'diablo' && (
+                  <>
+                    <img
+                      src={DiabloAnimationCover}
+                      className="w-full h-full absolute inset-0"
+                      alt=""
+                    />
+                    <img
+                      src={DiabloAnimationGif}
+                      className="w-full h-full absolute inset-0 opacity-0 hover:opacity-100 transition-opacity duration-300"
+                      alt=""
+                    />
+                  </>
+                )}
+                {selectedGame === 'hearthstone' && (
+                  <>
+                    <img
+                      src={HearthstoneAnimationCover}
+                      className="w-full h-full absolute inset-0"
+                      alt=""
+                    />
+                    <img
+                      src={HearthstoneAnimationGif}
+                      className="w-full h-full absolute inset-0 opacity-0 hover:opacity-100 transition-opacity duration-300"
+                      alt=""
+                    />
+                  </>
+                )}
+                {selectedGame === 'wow' && (
+                  <>
+                    <img
+                      src={WowAnimationCover}
+                      className="w-full h-full absolute inset-0"
+                      alt=""
+                    />
+                    <img
+                      src={WowAnimationGif}
+                      className="w-full h-full absolute inset-0 opacity-0 hover:opacity-100 transition-opacity duration-300"
+                      alt=""
+                    />
+                  </>
+                )}
+                <button className="absolute p-2 rounded-full bg-black z-10 pointer-events-none">
+                  <Play className="text-[#00aeff] inset-0 z-0" />
+                </button>
+              </div>
             </div>
           </div>
-        </div>
+        )}
       </div>
     </div>
   )

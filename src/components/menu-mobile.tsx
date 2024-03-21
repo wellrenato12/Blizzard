@@ -1,10 +1,12 @@
-import { ChevronDown, Menu, UserRound, X } from 'lucide-react'
+import { Menu, UserRound, X } from 'lucide-react'
 import { useState } from 'react'
 import BlizzardLogo from '../assets/blizzard.png'
 import { Button } from './button'
+import { useCalcWidth } from '../hooks/useCalcWidth'
 
 export function MenuMobile() {
   const [open, setOpen] = useState(false)
+  const windowWidth = useCalcWidth()
 
   return (
     <nav className="flex items-center justify-between relative px-8 pt-8 pb-4 max-w-[1280px] m-auto">
@@ -12,19 +14,21 @@ export function MenuMobile() {
         <img src={BlizzardLogo} alt="" />
       </a>
 
-      <div className="flex gap-4 absolute left-1/2">
-        <Button
-          backgroundColor="transparent"
-          content="Criar conta"
-          width={116}
-        />
-        <Button
-          backgroundColor="#00AEFF"
-          content="Logar"
-          width={116}
-          icon={<UserRound />}
-        />
-      </div>
+      {windowWidth > 768 && (
+        <div className="flex gap-4 absolute left-1/2">
+          <Button
+            backgroundColor="transparent"
+            content="Criar conta"
+            width={116}
+          />
+          <Button
+            backgroundColor="#00AEFF"
+            content="Logar"
+            width={116}
+            icon={<UserRound />}
+          />
+        </div>
+      )}
 
       <div
         onClick={() => setOpen(!open)}
@@ -37,7 +41,7 @@ export function MenuMobile() {
         )}
       </div>
 
-      <ul
+      {/* <ul
         className={`pt-12 pb-4 absolute bg-white z-[-1] left-0 w-full pl-9 transition-all duration-500 ease-in ${
           open ? 'top-0' : 'top-[-490px]'
         }`}
@@ -63,7 +67,7 @@ export function MenuMobile() {
         <li>
           <a href="#">Suporte</a>
         </li>
-      </ul>
+      </ul> */}
     </nav>
   )
 }

@@ -1,33 +1,15 @@
-import { useEffect, useState } from 'react'
 import { MenuWeb } from './menu-web'
 import { MenuMobile } from './menu-mobile'
+import { useCalcWidth } from '../hooks/useCalcWidth'
 
 export function Menu() {
-  const [pageSize, setPageSize] = useState({
-    width: window.innerWidth,
-  })
-  const componentRender = pageSize.width > 1280 ? <MenuWeb /> : <MenuMobile />
-
-  useEffect(() => {
-    const handleSize = () => {
-      setPageSize({
-        width: window.innerWidth,
-      })
-    }
-
-    window.addEventListener('resize', handleSize)
-
-    handleSize()
-
-    return () => {
-      window.removeEventListener('resize', handleSize)
-    }
-  }, [])
+  const windowWidth = useCalcWidth()
+  const componentRender = windowWidth > 1100 ? <MenuWeb /> : <MenuMobile />
 
   return (
-    <>
+    <div className="relative z-20">
       {componentRender}
       <hr className="w-full border-t border-white/25 mt-4" />{' '}
-    </>
+    </div>
   )
 }

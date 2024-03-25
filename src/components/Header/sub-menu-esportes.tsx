@@ -1,9 +1,9 @@
-import image1 from '../assets/IconesEsportes/image1.png'
-import image2 from '../assets/IconesEsportes/image2.png'
-import image3 from '../assets/IconesEsportes/image3.png'
-import image4 from '../assets/IconesEsportes/image4.png'
-import image5 from '../assets/IconesEsportes/image5.png'
-import torneio from '../assets/IconesEsportes/icon-torneio.png'
+import image1 from '../../assets/IconesEsportes/image1.png'
+import image2 from '../../assets/IconesEsportes/image2.png'
+import image3 from '../../assets/IconesEsportes/image3.png'
+import image4 from '../../assets/IconesEsportes/image4.png'
+import image5 from '../../assets/IconesEsportes/image5.png'
+import torneio from '../../assets/IconesEsportes/icon-torneio.png'
 
 export function SubMenuEsportes() {
   return (
@@ -43,10 +43,12 @@ export function SubMenuEsportes() {
         </div>
       </ul>
       <div className="flex items-center justify-center gap-12 pt-20">
-        <span className="flex items-center gap-2">
-          <img className="w-3 h-3" src={torneio} alt="" />
-          Torneios da comunidade
-        </span>
+        <a href="#">
+          <span className="flex items-center gap-2">
+            <img className="w-3 h-3" src={torneio} alt="" />
+            Torneios da comunidade
+          </span>
+        </a>
       </div>
     </div>
   )

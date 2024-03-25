@@ -7,6 +7,7 @@ module.exports = {
         diabloImage: "url('src/assets/diablo-bg.png')",
         hearthstoneImage: "url('src/assets/hearthstone-bg.png')",
         wowImage: "url('src/assets/wow-bg.png')",
+        bgModal: "url('src/assets/background-modal.png')",
       },
       fontFamily: {
         poppins: ['Poppins', 'sans-serif'],

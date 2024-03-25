@@ -1,8 +1,8 @@
 import { Menu, UserRound, X } from 'lucide-react'
 import { useState } from 'react'
-import BlizzardLogo from '../assets/blizzard.png'
-import { Button } from './button'
-import { useCalcWidth } from '../hooks/useCalcWidth'
+import { Button } from '../button'
+import { useCalcWidth } from '../../hooks/useCalcWidth'
+import BlizzardLogo from '../../assets/blizzard.png'
 
 export function MenuMobile() {
   const [open, setOpen] = useState(false)
@@ -26,6 +26,7 @@ export function MenuMobile() {
             content="Logar"
             width={116}
             icon={<UserRound />}
+            modal={true}
           />
         </div>
       )}

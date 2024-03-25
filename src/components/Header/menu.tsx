@@ -1,6 +1,6 @@
 import { MenuWeb } from './menu-web'
 import { MenuMobile } from './menu-mobile'
-import { useCalcWidth } from '../hooks/useCalcWidth'
+import { useCalcWidth } from '../../hooks/useCalcWidth'
 
 export function Menu() {
   const windowWidth = useCalcWidth()

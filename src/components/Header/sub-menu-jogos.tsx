@@ -1,19 +1,19 @@
-import diablo2 from '../assets/IconesJogos/diablo-2.png'
-import overwatch from '../assets/IconesJogos/overwatch-2.png'
-import worldOfWarcraft from '../assets/IconesJogos/world-of-warcraft.png'
-import hearthstone from '../assets/IconesJogos/hearthstone.png'
-import heroesTheStorm from '../assets/IconesJogos/heroes-of-the-storm.png'
-import warcraft3 from '../assets/IconesJogos/warcraft-3.png'
-import diablo4 from '../assets/IconesJogos/diablo-4.png'
-import diabloImmortal from '../assets/IconesJogos/diablo-immortal.png'
-import diablo3 from '../assets/IconesJogos/diablo-3.png'
-import starcraft2 from '../assets/IconesJogos/starcraft-2.png'
-import starcraft from '../assets/IconesJogos/starcraft.png'
-import arcadeDaBlizzard from '../assets/IconesJogos/arcade-da-blizzard.png'
-import icone1 from '../assets/IconesJogos/icone1.png'
-import icone2 from '../assets/IconesJogos/icone2.png'
-import icone3 from '../assets/IconesJogos/icone3.png'
-import icone4 from '../assets/IconesJogos/icone4.png'
+import diablo2 from '../../assets/IconesJogos/diablo-2.png'
+import overwatch from '../../assets/IconesJogos/overwatch-2.png'
+import worldOfWarcraft from '../../assets/IconesJogos/world-of-warcraft.png'
+import hearthstone from '../../assets/IconesJogos/hearthstone.png'
+import heroesTheStorm from '../../assets/IconesJogos/heroes-of-the-storm.png'
+import warcraft3 from '../../assets/IconesJogos/warcraft-3.png'
+import diablo4 from '../../assets/IconesJogos/diablo-4.png'
+import diabloImmortal from '../../assets/IconesJogos/diablo-immortal.png'
+import diablo3 from '../../assets/IconesJogos/diablo-3.png'
+import starcraft2 from '../../assets/IconesJogos/starcraft-2.png'
+import starcraft from '../../assets/IconesJogos/starcraft.png'
+import arcadeDaBlizzard from '../../assets/IconesJogos/arcade-da-blizzard.png'
+import icone1 from '../../assets/IconesJogos/icone1.png'
+import icone2 from '../../assets/IconesJogos/icone2.png'
+import icone3 from '../../assets/IconesJogos/icone3.png'
+import icone4 from '../../assets/IconesJogos/icone4.png'
 
 export function SubMenuJogos() {
   return (
@@ -97,22 +97,30 @@ export function SubMenuJogos() {
         </div>
       </ul>
       <div className="flex items-center justify-center gap-12 pt-20">
-        <span className="flex items-center gap-2">
-          <img className="w-3 h-3" src={icone1} alt="" />
-          Ver todos jogos
-        </span>
-        <span className="flex items-center gap-2">
-          <img src={icone2} alt="" />
-          Aplicativo Battle.net
-        </span>
-        <span className="flex items-center gap-2">
-          <img src={icone3} alt="" />
-          Donwloads
-        </span>
-        <span className="flex items-center gap-2">
-          <img src={icone4} alt="" />
-          Fóruns dos jogos
-        </span>
+        <a href="#">
+          <span className="flex items-center gap-2">
+            <img className="w-3 h-3" src={icone1} alt="" />
+            Ver todos jogos
+          </span>
+        </a>
+        <a href="#">
+          <span className="flex items-center gap-2">
+            <img src={icone2} alt="" />
+            Aplicativo Battle.net
+          </span>
+        </a>
+        <a href="#">
+          <span className="flex items-center gap-2">
+            <img src={icone3} alt="" />
+            Donwloads
+          </span>
+        </a>
+        <a href="#">
+          <span className="flex items-center gap-2">
+            <img src={icone4} alt="" />
+            Fóruns dos jogos
+          </span>
+        </a>
       </div>
     </div>
   )

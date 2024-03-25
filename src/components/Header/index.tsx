@@ -1,22 +1,22 @@
-import Game1 from '../assets/game-1.png'
-import Game2 from '../assets/game-2.png'
-import Game3 from '../assets/game-3.png'
-import Game4 from '../assets/game-4.png'
-import Game5 from '../assets/game-5.png'
-import DiabloLogo from '../assets/diablo-logo.png'
-import DiabloAnimationCover from '../assets/diablo-animation-cover.png'
-import DiabloAnimationGif from '../assets/diablo-animation.gif'
-import HearthstoneLogo from '../assets/hearthstone-logo.png'
-import HearthstoneAnimationCover from '../assets/hearthstone-animation-cover.png'
-import HearthstoneAnimationGif from '../assets/hearthstone-animation.gif'
-import WowLogo from '../assets/wow-logo.png'
-import WowAnimationCover from '../assets/wow-animation-cover.png'
-import WowAnimationGif from '../assets/wow-animation.gif'
-import { Menu } from './menu'
-import { Button } from './button'
+import Game1 from '../../assets/game-1.png'
+import Game2 from '../../assets/game-2.png'
+import Game3 from '../../assets/game-3.png'
+import Game4 from '../../assets/game-4.png'
+import Game5 from '../../assets/game-5.png'
+import DiabloLogo from '../../assets/diablo-logo.png'
+import DiabloAnimationCover from '../../assets/diablo-animation-cover.png'
+import DiabloAnimationGif from '../../assets/diablo-animation.gif'
+import HearthstoneLogo from '../../assets/hearthstone-logo.png'
+import HearthstoneAnimationCover from '../../assets/hearthstone-animation-cover.png'
+import HearthstoneAnimationGif from '../../assets/hearthstone-animation.gif'
+import WowLogo from '../../assets/wow-logo.png'
+import WowAnimationCover from '../../assets/wow-animation-cover.png'
+import WowAnimationGif from '../../assets/wow-animation.gif'
+import { Menu } from '../Header/menu'
+import { Button } from '../button'
 import { Play } from 'lucide-react'
 import { useEffect, useMemo, useState } from 'react'
-import { useCalcWidth } from '../hooks/useCalcWidth'
+import { useCalcWidth } from '../../hooks/useCalcWidth'
 
 export function Header() {
   const [selectedGame, setSelectedGame] = useState('diablo')
@@ -42,7 +42,7 @@ export function Header() {
       className={`${selectedGame === 'diablo' && 'bg-diabloImage'} ${selectedGame === 'hearthstone' && 'bg-hearthstoneImage'} ${selectedGame === 'wow' && 'bg-wowImage'} h-[736px] bg-no-repeat bg-cover`}
     >
       <Menu />
-      <div className="flex items-center justify-between max-w-[1280px] my-20 m-auto">
+      <div className="flex items-center justify-between max-w-[1280px] my-8 md:my-20 m-auto">
         <div className="flex flex-col-reverse xl:flex-row items-start xl:items-center gap-20 px-8">
           <div className="flex flex-row xl:flex-col gap-4">
             <img
@@ -76,8 +76,8 @@ export function Header() {
               onClick={() => handleChangeGame}
             />
           </div>
-          <div className="flex flex-col items-start gap-4 text-center md:text-start w-auto md:w-[600px]">
-            <h1 className="text-[64px] font-bold leading-tight">
+          <div className="flex flex-col items-start gap-4 text-start w-auto md:w-[600px]">
+            <h1 className="text-[48px] md:text-[64px] font-bold leading-tight">
               {selectedGame === 'diablo' &&
                 'Retorne à escuridão com o game Diablo IV'}
               {selectedGame === 'hearthstone' &&

@@ -6,7 +6,7 @@ interface ButtonProps {
   backgroundColor: '#00AEFF' | 'transparent'
   content: string
   width: number
-  icon?: ReactNode
+  icon?: ReactNode | string
   modal?: boolean
 }
 
@@ -23,9 +23,13 @@ export function Button({
         <Dialog.Trigger asChild>
           {icon ? (
             <button
-              className={`flex items-center gap-2 rounded-sm px-4 py-2 h-[52px] w-[${width}px] ${backgroundColor === 'transparent' ? 'bg-transparent border border-white hover:bg-white hover:text-black transition-all' : 'bg-[#00AEFF] hover:bg-[#38bdf8] transition-all duration-300'}`}
+              className={`flex items-center justify-center gap-2 rounded-sm px-4 py-2 h-[52px] w-[${width}px] ${backgroundColor === 'transparent' ? 'bg-transparent border border-white hover:bg-white hover:text-black transition-all' : 'bg-[#00AEFF] hover:bg-[#38bdf8] transition-all duration-300'}`}
             >
-              {icon}
+              {typeof icon === 'string' ? (
+                <img src={icon} alt="Icon" className="w-4 h-4" />
+              ) : (
+                icon
+              )}
               {content}
             </button>
           ) : (
@@ -42,14 +46,18 @@ export function Button({
   }
   return icon ? (
     <button
-      className={`flex items-center gap-2 rounded-sm px-4 py-2 h-[52px] w-[${width}px] ${backgroundColor === 'transparent' ? 'bg-transparent border border-white hover:bg-white hover:text-black transition-all' : 'bg-[#00AEFF] hover:bg-[#38bdf8] transition-all duration-300'}`}
+      className={`flex items-center justify-center gap-2 rounded-sm px-4 py-2 h-[52px] w-[${width}px] ${backgroundColor === 'transparent' ? 'bg-transparent border border-white hover:bg-white hover:text-black transition-all' : 'bg-[#00AEFF] hover:bg-[#38bdf8] transition-all duration-300'}`}
     >
-      {icon}
+      {typeof icon === 'string' ? (
+        <img src={icon} alt="Icon" className="w-4 h-4" />
+      ) : (
+        icon
+      )}
       {content}
     </button>
   ) : (
     <button
-      className={`rounded-sm px-4 py-2 h-[52px] w-[${width}px] ${backgroundColor === 'transparent' ? 'bg-transparent border border-white hover:bg-white hover:text-black transition-all' : 'bg-[#00AEFF] hover:bg-[#38bdf8] transition-all duration-300'}`}
+      className={`mx-auto sm:mx-0 rounded-sm px-4 py-2 h-[52px] w-[${width}px] ${backgroundColor === 'transparent' ? 'bg-transparent border border-white hover:bg-white hover:text-black transition-all' : 'bg-[#00AEFF] hover:bg-[#38bdf8] transition-all duration-300'}`}
     >
       {content}
     </button>

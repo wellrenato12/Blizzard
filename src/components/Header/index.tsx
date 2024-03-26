@@ -39,7 +39,7 @@ export function Header() {
 
   return (
     <div
-      className={`${selectedGame === 'diablo' && 'bg-diabloImage'} ${selectedGame === 'hearthstone' && 'bg-hearthstoneImage'} ${selectedGame === 'wow' && 'bg-wowImage'} h-[736px] bg-no-repeat bg-cover`}
+      className={`overflow-hidden ${selectedGame === 'diablo' && 'bg-diabloImage'} ${selectedGame === 'hearthstone' && 'bg-hearthstoneImage'} ${selectedGame === 'wow' && 'bg-wowImage'} h-[736px] bg-no-repeat bg-cover`}
     >
       <Menu />
       <div className="flex items-center justify-between max-w-[1280px] my-8 md:my-20 m-auto">
@@ -76,8 +76,8 @@ export function Header() {
               onClick={() => handleChangeGame}
             />
           </div>
-          <div className="flex flex-col items-start gap-4 text-start w-auto md:w-[600px]">
-            <h1 className="text-[48px] md:text-[64px] font-bold leading-tight">
+          <div className="flex flex-col items-start gap-8 sm:gap-4 text-start w-auto md:w-[600px]">
+            <h1 className="text-[42px] sm:text-[48px] md:text-[64px] text-center sm:text-start font-bold leading-tight">
               {selectedGame === 'diablo' &&
                 'Retorne à escuridão com o game Diablo IV'}
               {selectedGame === 'hearthstone' &&
@@ -85,7 +85,7 @@ export function Header() {
               {selectedGame === 'wow' &&
                 'Desbrave as Terras Sombrias em Shadowlands!'}
             </h1>
-            <p className="text-[18px] text-center md:text-start">
+            <p className="sm:text-[18px] text-center md:text-start">
               {selectedGame === 'diablo' &&
                 'O retorno de Lilith traz uma era de escuridão e sofrimento'}
               {selectedGame === 'hearthstone' &&
